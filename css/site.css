@@ -1,0 +1,95 @@
+
+
+:root {
+    --jw-dark-color: #212121;
+    --jw-light-color: #ece7e7;
+    --jw-primary-color: #001ef3;
+    --jw-secondary-color: #ff993b;
+}
+
+main>.container {
+    padding: 60px 15px 0;
+    margin-bottom: 5rem;
+    min-height: 90vh;
+}
+
+/* --------------------------NAV BAR -------------------- */
+
+.navbarBG {
+    background-color: var(--jw-secondary-color);
+}
+
+.jsicon {
+    color: #d6cc3a;
+}
+
+.bsicon {
+    color: purple;
+}
+
+.htmlicon {
+    color: rgb(216, 33, 33);
+}
+
+.cssicon {
+    color: blue;
+}
+
+.checklisticon {
+    color: var(--jw-secondary-color);
+}
+
+
+/* --------------------------BUTTON STYLES OVERRIDE BOOTSTRAP STYLES---------------- */
+.btn-outline-primary {
+    color: var(--jw-primary-color);
+    border-color: var(--jw-secondary-color) !important;
+}
+
+.btn-outline-primary:hover,
+.btn-outline-primary:active,
+.btn-outline-primary:focus {
+    border-color: var(--jw-primary-color) !important;
+    background-color: var(--jw-secondary-color);
+}
+
+.btn-primary {
+    color: white !important;
+    background-color: var(--jw-secondary-color);
+    border-color: var(--jw-secondary-color);
+}
+
+.btn-primary:hover,
+.btn-primary:active,
+.btn-primary:visited,
+.btn-primary:focus {
+    filter: brightness(1.1) !important;
+    border-color: var(--jw-secondary-color);
+
+}
+
+
+/* --------------------FOOTER STYLE-------------------- */
+.footer {
+    background-color: var(--jw-dark-color);
+    padding-right: 1rem;
+    color: var(--jw-light-color)
+}
+
+.sticky-footer {
+    position: sticky;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+}
+
+footer .social>a {
+    color: var(--jw-light-color);
+    opacity: .75;
+
+}
+
+footer .social>a:hover {
+    color: var(--jw-secondary-color);
+    opacity: .90;
+}
