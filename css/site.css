@@ -5,6 +5,7 @@
     --jw-light-color: #ece7e7;
     --jw-primary-color: #001ef3;
     --jw-secondary-color: #ff993b;
+    --jw-green-color: green;
 }
 
 main>.container {
@@ -16,7 +17,7 @@ main>.container {
 /* --------------------------NAV BAR -------------------- */
 
 .navbarBG {
-    background-color: var(--jw-secondary-color);
+    background-color: var(--jw-green-color);
 }
 
 .jsicon {
@@ -43,18 +44,18 @@ main>.container {
 /* --------------------------BUTTON STYLES OVERRIDE BOOTSTRAP STYLES---------------- */
 .btn-outline-primary {
     color: var(--jw-primary-color);
-    border-color: var(--jw-secondary-color) !important;
+    border-color: var(--jw-light-color);
 }
 
 .btn-outline-primary:hover,
 .btn-outline-primary:active,
 .btn-outline-primary:focus {
-    border-color: var(--jw-primary-color) !important;
+    border-color: var(--jw-primary-color);
     background-color: var(--jw-secondary-color);
 }
 
 .btn-primary {
-    color: white !important;
+    color: white ;
     background-color: var(--jw-secondary-color);
     border-color: var(--jw-secondary-color);
 }
@@ -63,7 +64,7 @@ main>.container {
 .btn-primary:active,
 .btn-primary:visited,
 .btn-primary:focus {
-    filter: brightness(1.1) !important;
+    filter: brightness(1.1) ;
     border-color: var(--jw-secondary-color);
 
 }
