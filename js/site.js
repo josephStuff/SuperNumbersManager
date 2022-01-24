@@ -185,6 +185,7 @@ function getEvents (element) {
 
 //  ----------------------DISPLAY ALL THE EVENTS ON THE PAGE ------------
 function displayData () {
+
   let template = document.getElementById("eventData-template");
 
   let eventBody = document.getElementById("eventBody");
