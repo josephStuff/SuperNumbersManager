@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>Super Numbers Manager: A JS PROJECT</title>
+    <title>Super Event Manager</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -14,7 +14,7 @@
    <!-- Convert this to an external style sheet -->
 
    <link href="css/site.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="img/favicon-32x32.png" />
+    <link rel="icon" type="image/png" href="img/favicon-16x16.png" />
 
    <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>
 
@@ -24,16 +24,16 @@
 
 <nav class="navbar navbar-expand-md fixed-top navbarBG navbar-dark">
     <div class="container-fluid">
-        <a class="navbar-brand" href="index.html">
-            <img src="img/numbersPic.png" height="24" class="d-inline-block align-text-top"/>
-            Super Numbers Manager
+        <a class="navbar-brand " href="index.html">
+            <img src="img/favicon-32x32.png" height="24" class="d-inline-block align-text-top"/>
+            Super Event Manager
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="toggle navigation">
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav me-auto mb-2 mb-md-0">
+            <ul class="navbar-nav mb-2 me-auto mb-md-0">
                 <li class="nav-item">
                     <a class="nav-link" href="index.html">Home</a>
                 </li>
@@ -41,7 +41,7 @@
                     <a class="nav-link active" aria-current="page" href="apps.html">The Apps</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" href="code.html">The code</a>
+                    <a class="nav-link" href="code.html">The Code</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="https://joe-watson-portfolio.netlify.app">About</a>
@@ -51,12 +51,12 @@
     </div>
 </nav>
 
-    <main id="content" class="flex-shrink-0">
+    <main id="content" class="container flex-shrink-0">
        <div class="container mt-5 mb-2">
            <div class="row row-cols-1 row-cols-md-2">   
-                <div class="col-6">
+                <div class="col-12 col-md-6">
                     <div class="btn-group" role="group">
-                        <button id="btnCityDrop" type="button" class="btn btn-success dropdown-toggle"
+                        <button id="btnCityDrop" type="button" class="btn btn-success dropdown-toggle mb-1"
                         data-bs-toggle="dropdown" aria-expanded="false">
                             Pick A Location
                         </button>
@@ -72,34 +72,29 @@
                         </tr>
                         <tr>
                             <td>Total Attendance</td>
-                            <td id="total">100</td>
+                            <td id="total"></td>
                         </tr>
                         <tr>
                             <td>Average Attendance</td>
-                            <td id="average">100</td>
+                            <td id="average"></td>
                         </tr>
                         <tr>
                             <td>Most Attended</td>
-                            <td id="most">100</td>
+                            <td id="most"></td>
                         </tr>
                         <tr>
                             <td>Least Attended</td>
-                            <td id="least">100</td>
+                            <td id="least"></td>
                         </tr>
                     </table>
                 </div>
                 <div class="col d-flex justify-content-center order-md-last">
-                    <img src="img/imagePeople.jpg" class="img-fluid p-2">
+                    <img src="img/imagePeople.jpg" class="img-fluid">
                 </div>
             </div>
             <div class="row">
                 <div class="col">
-                    
-                </div>
-            </div>
-            <div class="row">
-                <div class="col">
-                    <button class="btn btn-warning" data-bs-toggle="modal" data-bs-target="#addData">Add Data</button>
+                    <button class="btn btn-warning mt-2" data-bs-toggle="modal" data-bs-target="#addData">Add Data</button>
                 </div>
                 <table class="table table-striped" id="eventData">
                     <thead>
@@ -111,7 +106,7 @@
                             <th>Event Date</th>
                         </tr>
                     </thead>
-                    <tbody id="eventBody">
+                    <tbody id="eventBody" class="">
                         <!-- -------DATA GOES HERE ------ -->
                     </tbody>
                 </table>
@@ -119,9 +114,9 @@
         </div>
     </main>
 
-    <!-- --------   FOOTER SECTION  ------- -->
-    <footer class="mt-auto fixed-bottom sticky-footer">
-        <div class="container-fluid navbarBG">
+    <!-- ----------------------------------   FOOTER SECTION  -------------------- -->
+    <footer class="mt-auto py-3 sticky-footer">
+        <div class="container-fluid navbarBG py-2">
             <div class="row row-cols-1 row-cols-lg-3 py-2">
                 <div class="col order-last order-lg-first order-md-last">
                     <div>

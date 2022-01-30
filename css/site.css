@@ -9,8 +9,8 @@
 }
 
 main>.container {
-    padding: 60px 15px 0;
-    margin-bottom: 5rem;
+    padding: 60px 15px 0px;
+    margin-bottom: 3rem;
     min-height: 90vh;
 }
 
@@ -72,9 +72,9 @@ main>.container {
 
 /* --------------------FOOTER STYLE-------------------- */
 .footer {
-    background-color: var(--jw-dark-color);
-    padding-right: 1rem;
-    color: var(--jw-light-color)
+    background-color: var(--jw-green-color);
+    padding-right: 0rem;
+    color: var(--jw-green-color)
 }
 
 .sticky-footer {
@@ -82,6 +82,7 @@ main>.container {
     left: 0;
     bottom: 0;
     width: 100%;
+    padding-bottom: 2;
 }
 
 footer .social>a {

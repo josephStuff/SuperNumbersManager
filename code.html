@@ -2,7 +2,7 @@
 <html lang="en" class="h-100">
 
 <head>
-    <title>Super Numbers Manager: A JS PROJECT</title>
+    <title>Super Event Manager</title>
     <!-- Required meta tags -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -11,10 +11,10 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/css/bootstrap.min.css" rel="stylesheet"
         integrity="sha384-F3w7mX95PdgyTmZZMECAngseQB83DfGTowi0iMjiWaeVhAn4FJkqJByhZMI3AhiU" crossorigin="anonymous">
 
-   <!-- Convert this to an external style sheet -->
+   <!------------------- Convert this to an external style sheet ---------------->
 
     <link href="css/site.css" rel="stylesheet">
-    <link rel="icon" type="image/png" href="img/favicon-32x32.png" />
+    <link rel="icon" type="image/png" href="img/favicon-16x16.png" />
     <link rel="stylesheet" href="/css/prism.css" />
     <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>
 
@@ -25,8 +25,8 @@
 <nav class="navbar navbar-expand-md fixed-top navbarBG navbar-dark">
     <div class="container-fluid">
         <a class="navbar-brand" href="index.html">
-            <img src="img/MspectreMark.svg" height="24" class="d-inline-block align-text-top"/>
-            Super Numbers Manager
+            <img src="img/favicon-32x32.png" height="24" class="d-inline-block align-text-top"/>
+            Super Event Manager
         </a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse"
             aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
@@ -41,7 +41,7 @@
                     <a class="nav-link" href="apps.html">The App</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link active" aria-current="page" href="code.html">The code</a>
+                    <a class="nav-link active" aria-current="page" href="code.html">The Code</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="https://joe-watson-portfolio.netlify.app">About</a>
@@ -51,9 +51,9 @@
     </div>
 </nav>
 
-<!-- --------------------MAAIN SECTION -->
+<!----------------------- MAIN SECTION ----------------->
 
-    <main class="flex-shrink-0">
+    <main class="container flex-shrink-0">
         <div class="container">
             <h2 class="border-1 border-bottom border-dark">THE CODE</h2>
             <div class="row">
@@ -61,41 +61,276 @@
                     <pre class="line-numbers">
                         <code class="language-js">
                             
-<!-- Controller Function -->
-function getMessage() {
-    let userMessage = document.getElementById("message").value;
-    Swal.fire(
-        'Button clicked!',
-        userMessage,
-        "success"
-    );
-    console.log(userMessage);
+<!------------------------ Controller Function ------------------>
+const events = [
+  {
+    id: 1,
+    event: "ComicCon",
+    city: "New York",
+    state: "New York",
+    attendance: 240000,
+    date: "06/01/2017",
+  },
+  {
+    id: 2,
+    event: "ComicCon",
+    city: "New York",
+    state: "New York",
+    attendance: 250000,
+    date: "06/01/2018",
+  },
+  {
+    id: 3,
+    event: "ComicCon",
+    city: "New York",
+    state: "New York",
+    attendance: 257000,
+    date: "06/01/2019",
+  },
+  {
+    id: 4,
+    event: "ComicCon",
+    city: "San Diego",
+    state: "California",
+    attendance: 130000,
+    date: "06/01/2017",
+  },
+  {
+    id: 5,
+    event: "ComicCon",
+    city: "San Diego",
+    state: "California",
+    attendance: 140000,
+    date: "06/01/2018",
+  },
+  {
+    id: 6,
+    event: "ComicCon",
+    city: "San Diego",
+    state: "California",
+    attendance: 150000,
+    date: "06/01/2019",
+  },
+  {
+    id: 7,
+    event: "HeroesCon",
+    city: "Charlotte",
+    state: "North Carolina",
+    attendance: 40000,
+    date: "06/01/2017",
+  },
+  {
+    id: 8,
+    event: "HeroesCon",
+    city: "Charlotte",
+    state: "North Carolina",
+    attendance: 45000,
+    date: "06/01/2018",
+  },
+  {
+    id: 9,
+    event: "HeroesCon",
+    city: "Charlotte",
+    state: "North Carolina",
+    attendance: 50000,
+    date: "06/01/2019",
+  },
+];
+
+// -----  BUILDS A LIST OF DISTINCT CITIES FOR YOUR DROP DOWN ----------
+
+function buildDropDown() {
+  //  --------- GRAB THE EVENT DROP DOWN WE WANT TO ADD CITIES TO --------
+  let eventDD = document.getElementById("eventDropDown");
+  eventDD.innerHTML = "";
+
+  // --------- LOAD OUR LINKS FROM A TEMPLATE ----------
+  let ddTemplate = document.getElementById("cityDD-template");
+
+  let curEvents = JSON.parse(localStorage.getItem("eventsArray")) || events;
+
+  //  ---------- MAP THE CITY PROPERTY TO A NEW ARRAY ------------- -----
+  let cities = curEvents.map((e) => e.city);
+
+  // --------------- RETURN A LIST OF DISTINCT CITIES -------------
+  let distinctCities = [...new Set(cities)];
+
+  //  --------------  USE THE DROP DOWN TEMPLATE -----------------------
+  let ddItemTemplate = document.importNode(ddTemplate.content, true);
+  let li = ddItemTemplate.querySelector("li");
+  let ddItem = ddItemTemplate.querySelector("a");
+  ddItem.setAttribute("data-city", "All");
+  ddItem.innerHTML = "All";
+  eventDD.appendChild(li);
+
+  for (let index = 0; index < distinctCities.length; index++) {
+    
+    ddItemTemplate = document.importNode(ddTemplate.content, true);
+    li = ddItemTemplate.querySelector("li");
+    ddItem = li.querySelector("a");
+    ddItem.setAttribute("data-city", distinctCities[index]);
+    ddItem.innerHTML = distinctCities[index];
+    eventDD.appendChild(li);
+  
+  }
+
+    displayStats(curEvents);
+    displayData();
+
+}
+
+
+// ------ DISPLAY THE STATS ---------------------------
+
+function displayStats(filteredEvents) {
+
+    let total = 0;
+    let average = 0;
+    let most = 0;
+    let least = -1;
+    let currentAttendance = 0;
+
+    for (let index = 0; index < filteredEvents.length; index++) {
+        currentAttendance = filteredEvents[index].attendance;
+        total += currentAttendance;
+
+        if (most < currentAttendance) {
+            most = currentAttendance;
+        }
+
+        if (least == -1 || least > currentAttendance ) {
+          least = currentAttendance;
+        }
+
+        
+    }
+
+    average = total / filteredEvents.length;
+  
+  document.getElementById("total").innerHTML = total.toLocaleString();
+  document.getElementById("least").innerHTML = least.toLocaleString();
+  document.getElementById("most").innerHTML = most.toLocaleString();
+  document.getElementById("average").innerHTML = average.toLocaleString(
+    "en-US", {
+      minimumFractionDigits: 0,
+      maximumFractionDigits: 0,
+    }
+
+  );
+
+}
+
+// ----------------SHOW THE EVENTS FOR SPECIFIC LOCATION.-----------------
+// -----------------THE USER SELECTED A CITY AND THIS FIRES -----------------
+function getEvents (element) {
+
+  let city = element.getAttribute("data-city");
+  let curEvents = JSON.parse(localStorage.getItem("eventsArray")) || events;
+
+  let filteredEvents = curEvents;
+  
+  // ---------FILTER THE EVENTS BASED SELECTED CITY ---------------
+  if (city != "All") {
+    filteredEvents = curEvents.filter(function(event) {
+      if(event.city == city) {
+        return event;
+      }
+    })
+  }
+
+  document.getElementById("statsHeader").innerHTML = `Stats For ${city} Events`;
+
+  // ----------------DISPLAY STATS FOR THE SELECTED CITY ------------------
+
+  displayStats(filteredEvents);
+
+}
+
+
+//  ----------------------DISPLAY ALL THE EVENTS ON THE PAGE ------------
+function displayData () {
+
+  let template = document.getElementById("eventData-template");
+
+  let eventBody = document.getElementById("eventBody");
+
+  // ---------------- CLEAR THE TABLE FIRST ------------------
+  eventBody.innerHTML = "";
+
+  let curEvents = JSON.parse(localStorage.getItem("eventsArray")) || [];
+
+
+  // ------------------IF NOTHING IS THERE, SET LOCAL STORAGE WITH THE DEFAULT DATA -----------
+  if (curEvents.length == 0) {
+      curEvents = events;
+      localStorage.setItem("eventsArray", JSON.stringify(curEvents));
+  }
+
+  for (let index = 0; index < curEvents.length; index++) {
+    let eventRow = document.importNode(template.content, true);
+    let eventCols = eventRow.querySelectorAll("td");
+
+    eventCols[0].textContent = curEvents[index].event;
+    eventCols[1].textContent = curEvents[index].city;
+    eventCols[2].textContent = curEvents[index].state;
+    eventCols[3].textContent = curEvents[index].attendance;
+    eventCols[4].textContent = curEvents[index] = new Date(
+      curEvents[index].date).toLocaleDateString();
+    
+
+    eventBody.appendChild(eventRow);
+
+  }
+
+}
+
+function saveData () {
+
+  let curEvents = JSON.parse(localStorage.getItem("eventsArray")) || events;
+  
+  let obj = {};
+
+  obj["event"] = document.getElementById("newEventName").value;
+  obj["city"] = document.getElementById("newEventCity").value;
+  let stateSelect = document.getElementById("newEventState");
+  obj["state"] = stateSelect.options[stateSelect.selectedIndex].text;
+  obj["attendance"] = parseInt(document.getElementById("newEventAttendance").value, 10);
+  let eventDate = document.getElementById("newEventDate").value;
+  let eventDate2 = `${eventDate} 00:00`;
+  obj["date"] = new Date(eventDate2).toLocaleString();
+
+  curEvents.push(obj);
+
+  localStorage.setItem("eventsArray", JSON.stringify(curEvents));
+
+  buildDropDown();
+  displayData();
+
 }
                         </code>
                     </pre>
                 </div>
                 <div class="col-12 col-lg-4">
-                    <p>I think this is placeholder text?  maybe?</p>
-                    <h3>getMessage</h3>
-                    <p>this is the user's message that is printed</p>
+                    <p>This is all the code for this App</p>
+                    <h3>Made by PRISM JS</h3>
+                    <p>Let me know how you like it!</p>
                 </div>
             </div>
-
         </div>
     </main>
 
 
-    <!-- -------------------FOOTER------- -->
+    <!-- ------------------------------- FOOTER -------------------------------- -->
     <footer class="footer mt-auto py-3 sticky-footer">
-        <div class="container-fluid">
+        <div class="container-fluid py-2">
             <div class="row row-cols-1 row-cols-lg-3 gy-2">
                 <div class="col order-last order-lg-first">
                     <div>
-                        <span class="col text-muted">&copy; 2022</span><span> Joe Watson | mrwatsonjoe31@gamil.com</span>
+                        <span class="col text-light">&copy; 2022 Joe Watson | mrwatsonjoe31@gamil.com</span>
                     </div>
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-lg-center">
-                   <span>Built Back Better, Joe W.</span> <!-- <img src="img/OrangeWhiteMark.svg" /> -->
+                   <span class="text-light">&copy; Built Back Better, Joe W.</span>
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-lg-end">
                     <div class="row">

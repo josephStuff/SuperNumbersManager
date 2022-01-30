@@ -197,6 +197,7 @@ function displayData () {
 
 
   // ------------------IF NOTHING IS THERE, SET LOCAL STORAGE WITH THE DEFAULT DATA -----------
+  
   if (curEvents.length == 0) {
       curEvents = events;
       localStorage.setItem("eventsArray", JSON.stringify(curEvents));
