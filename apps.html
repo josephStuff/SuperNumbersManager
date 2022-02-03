@@ -13,7 +13,7 @@
 
    <!-- Convert this to an external style sheet -->
 
-   <link href="css/site.css" rel="stylesheet">
+    <link href="css/site.css" rel="stylesheet">
     <link rel="icon" type="image/png" href="img/favicon-16x16.png" />
 
    <script src="https://kit.fontawesome.com/5db21ba9c6.js" crossorigin="anonymous"></script>
@@ -33,7 +33,7 @@
             <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse" id="navbarCollapse">
-            <ul class="navbar-nav mb-2 me-auto mb-md-0">
+            <ul class="navbar-nav me-auto mb-md-0">
                 <li class="nav-item">
                     <a class="nav-link" href="index.html">Home</a>
                 </li>
@@ -94,22 +94,24 @@
             </div>
             <div class="row">
                 <div class="col">
-                    <button class="btn btn-warning mt-2" data-bs-toggle="modal" data-bs-target="#addData">Add Data</button>
+                    <div class="table-responsive">
+                        <button class="btn btn-warning mt-2" data-bs-toggle="modal" data-bs-target="#addData">Add Data</button>
+                        <table class="table table-striped" id="eventData">
+                            <thead>
+                                <tr>
+                                    <th>Event Name</th>
+                                    <th>City</th>
+                                    <th>State</th>
+                                    <th>Attendance</th>
+                                    <th>Event Date</th>
+                                </tr>
+                            </thead>
+                            <tbody id="eventBody" class="">
+                                <!-- ---------------------- DATA GOES HERE -------------------- -->
+                            </tbody>
+                        </table>
+                    </div>
                 </div>
-                <table class="table table-striped" id="eventData">
-                    <thead>
-                        <tr>
-                            <th>Event Name</th>
-                            <th>City</th>
-                            <th>State</th>
-                            <th>Attendance</th>
-                            <th>Event Date</th>
-                        </tr>
-                    </thead>
-                    <tbody id="eventBody" class="">
-                        <!-- ---------------------- DATA GOES HERE -------------------- -->
-                    </tbody>
-                </table>
             </div>
         </div>
     </main>
@@ -120,7 +122,7 @@
             <div class="row row-cols-1 row-cols-lg-3">
                 <div class="col order-last order-lg-first ">
                     <div>
-                        <span class="col text-light">&copy; 2022</span><span class="text-light"> Joe Watson | MRWATSONJOE31@gmail.com</span>
+                        <span class="col text-light">&copy; 2022</span><span class="text-light"> Joe Watson | mrwatsonjoe31@gmail.com</span>
                     </div>
                 </div>
                 <div class="col d-flex align-items-center justify-content-start justify-content-lg-center">
