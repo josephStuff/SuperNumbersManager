@@ -92,6 +92,6 @@ footer .social>a {
 }
 
 footer .social>a:hover {
-    color: var(--jw-secondary-color);
+    color: var(--jw-light-color);
     opacity: .90;
 }
