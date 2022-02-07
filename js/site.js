@@ -143,16 +143,14 @@ function displayStats(filteredEvents) {
 
     average = total / filteredEvents.length;
   
-  document.getElementById("total").innerHTML = total.toLocaleString();
-  document.getElementById("least").innerHTML = least.toLocaleString();
-  document.getElementById("most").innerHTML = most.toLocaleString();
-  document.getElementById("average").innerHTML = average.toLocaleString(
-    "en-US", {
-      minimumFractionDigits: 0,
-      maximumFractionDigits: 0,
+    document.getElementById("total").innerHTML = total.toLocaleString();
+    document.getElementById("least").innerHTML = least.toLocaleString();
+    document.getElementById("most").innerHTML = most.toLocaleString();
+    document.getElementById("average").innerHTML = average.toLocaleString("en-US", {
+    minimumFractionDigits: 0,
+    maximumFractionDigits: 0,
     }
-
-  );
+    );
 
 }
 
